@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width", initial-scale="1.0">
+   <style>
+    *{
+        box-sizing: border-box;
+        background-color: #ccd2d3;
+      }
+      
+      body {
+        font-family: 'Lucida Sans';
+        background: linear-gradient(315deg, #ffff, #d7e1ec);
+        padding: 10%px;
+        margin-left: 2%;
+        margin-right: 2%;
+      }
+      
+      .fakeimg {
+  background-color: rgb(215, 231, 224);
+  width: 100%;
+  padding: 10px;
+  box-shadow: 0 4px 30px;
+}
+
+.fakeimg:hover {
+  background-color: rgb(216, 215, 231);
+}
+/* Add a card effect for articles */
+.card {
+  background-color: rgb(215, 231, 224);
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 5%;
+}
+
+article div {
+            display: flex;
+            flex-flow: row wrap;
+        }
+        
+        article div figure {
+            flex: 1 0 200px;
+            width: 400px;
+            height: 350px;
+            margin: 12px ; 
+            box-shadow: 0px 3px 3px rgb(151, 50, 160), 0px 3px 6px rgb(151, 50, 160), 0px 3px 12px rgb(151, 50, 160);
+            border-radius: 5%; 
+            text-align: center;
+            color: blue;
+            background: #f1f1f1;
+           
+        }
+        article1 div figure:hover {
+            box-shadow: 0px 0px 4px violet, 0px 0px 8px violet, 0px 0px 12px violet;
+            width: 370px;
+            height: 340px; 
+            transition: all 300ms ease-in-out;
+        }
+
+
+        article1 div {
+            display: flex;
+            flex-flow: row wrap;
+            padding: 2%;
+        }
+        
+        article1 div figure {
+            flex: 1 0 200px;
+            width: 400px;
+            height: 350px;
+            margin: 12px ; 
+            box-shadow: 0px 3px 3px #000, 0px 3px 6px #000, 0px 3px 12px #000;
+            border-radius: 5%; 
+            text-align: left;
+            color: rgb(255, 60, 0);
+            background: #f1f1f1;
+            line-height: normal;
+            padding: 5%;
+        }
+        article1 div figure p {
+          margin-top: 5px;
+        }
+        article1 div figure:hover {
+            box-shadow: 0px 0px 4px violet, 0px 0px 8px violet, 0px 0px 12px violet;
+            width: 370px;
+            height: 340px; 
+            transition: all 300ms ease-in-out;
+        }
+    </style>
+ </head>
+ <body>
+    <div class="card">
+        <div class="fakeimg"><p > <h1 style="color: rgb(12, 16, 243); text-align: center;"> Our Products & Services</h1> </p>
+            <div style="color: rgb(66, 36, 10);">
+            <ol>
+              
+            <li> Agricultural Inputs    </li>
+            <li> Agribusiness and Agriculture Consultancy Services    </li>
+            <li> Commodity Trading    </li>
+            <li> Trainings on General Agronomy.    </li>
+            </ol>
+            </div>
+          </div>
+        </div>
+        <article1>
+          <div>
+              <figure>
+                <div class="highlighter"><h1> Agricultural Inputs </h1></div>
+                <p>To farmers and groups that support, Our Farm House provides real and high-quality agricultural inputs. Specifically, in;</p>
+      
+                <ul>
+                  
+                <li> Inorganic and Organic Fertilizers    </li>
+                <li> Crop Protection Chemicals    </li>
+                <li> Improved Crop Seeds (Vegetables and Field Crops)    </li>
+                <li> Farm tools, Equipment and implements.    </li>
+                </ul>
+              </figure>
+              <figure>
+                <div class="highlighter"><h1> Commodity Trading </h1> </div>
+                <p> We connect farmers to the agricultural market. We work together with large-scale produce millers, produce exporters, wholesale merchants, and retailers to do this; we directly purchase from the farmers, add value, and then sustainably sell to various markets. </p> 
+              </figure>
+          </div>
+      </article1>
+            <article1>
+                <div>
+                    <figure>
+                        <div class="highlighter"><h1> Professional Agribusiness Consultancy Services </h1></div>
+            <p> We provide technical Assistance to Agricultural Value Chain Actors in the areas of; </p>
+            <ul>
+                <li>	Soil and Optimal Water Utilization </li>
+                <li> Farm planning and design </li>
+                 <li> Crop production and Improvement including climate smart Agriculture and agro ecological practices </li>
+                <li>	Rural Farmer Groups Formation, Management and Capacity Development </li>
+                <li> 	Farming as a Business. </li>
+                <li> 	Financial Inclusion Including Small-holder farmers financial access through village-based savings and loan associations and other linkages to financial institutions to have easy access. </li>
+                <li> 	Environment and environmental protection activities.. </li>
+                <li> 	Community nutrition and sensitization. </li>
+            </ul>
+        
+                   </div>
+                </div>
+             </figure>
+            </div>
+            </article1>
+     </body>
+    
+  
+</html>

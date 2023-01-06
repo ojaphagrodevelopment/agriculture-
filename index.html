@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width", initial-scale="1.0">
+<style>
+*{
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lucida Sans';
+  background: linear-gradient(315deg, #ffff, #d7e1ec);
+  padding: 10%px;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+/* Header/Blog Title */
+.header {
+  padding: 10px;
+  text-align: center;
+  background: rgb(36, 226, 36);
+  color: white;
+
+  
+}
+
+.header h1 {
+  font-size: 50px;
+  color: white;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: rgb(51, 51, 51);
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: rgb(0, 0, 0);
+}
+
+
+#slider {
+  position: relative;
+  width: 1000px;
+  height: 530px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  border-radius: 5%;
+  margin-left: 10%;
+  
+}
+#slider ul {
+  position: relative;
+  list-style: none;
+  height: 100%;
+  width: 10000%;
+  padding: 0;
+  margin: 0;
+  transition: all 750ms ease;
+  left: 0;
+}
+#slider ul li {
+  position: relative;
+  height: 100%;
+  float: left;
+
+}
+#slider ul li img {
+  width: 1000px;
+  height: 530px;
+}
+#slider #prev, #slider #next {
+  width: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  position: absolute;
+  top: 50%;
+  border-radius: 50%;
+  font-size: 2rem;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  transform: translateY(-50%);
+  transition: all 150ms ease;
+}
+
+#slider #prev {
+  left: 10px;
+}
+#slider #next {
+  right: 10px;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 75%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  background-color: #f1f1f1;
+  padding-left: 20px;
+}
+
+/* Fake image */
+.fakeimg {
+  background-color: rgb(215, 231, 224);
+  width: 100%;
+  padding: 10px;
+  box-shadow: 0 4px 30px;
+}
+
+.fakeimg:hover {
+  background-color: rgb(216, 215, 231);
+}
+/* Add a card effect for articles */
+.card {
+  background-color: rgb(215, 231, 224);
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 5%;
+}
+.card1 {
+  width: 100%;
+  background-color: rgb(216, 215, 231);
+  padding: 50px 35px; 
+  border-radius: 3%;
+  text-align: center;
+  padding: 50px 35px;
+  color: 1px solid ;
+  border: 1px solid rgba(228, 90, 221, 0.3);
+  max-width: 440px;
+  box-shadow: 0 4px 30px;
+  backdrop-filter: blur(5px);
+  height: 50%;
+}
+.card1 img {
+  width: 140px;
+  border-radius: 55%;
+  display: flex;
+  height: 150px;
+}
+
+.btn {
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 500;
+  background: #fff;
+  padding: 10px 30px;
+  border-radius: 30px;
+  color: #ff01cf;
+  margin: 30px 0 10px;
+}
+.btn:hover {
+  color: green;
+  background-color: rgb(211, 209, 199);
+  transition: all 300ms ease-in-out;
+}
+.follow {
+  padding: 20px;
+  margin-top: 20px;
+  text-align: center;
+  border-radius: 5%;
+  background-color: rgb(216, 215, 231);
+  border: 1px solid rgba(228, 90, 221, 0.3);
+  box-shadow: 0 4px 30px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;  
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: rgb(212, 40, 112);
+  margin-top: 20px;
+  color: white;
+}
+
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+
+
+
+article div {
+            display: flex;
+            flex-flow: row wrap;
+        }
+        
+        article div figure {
+            flex: 1 0 200px;
+            width: 400px;
+            height: 350px;
+            margin: 12px ; 
+            box-shadow: 0px 3px 3px rgb(151, 50, 160), 0px 3px 6px rgb(151, 50, 160), 0px 3px 12px rgb(151, 50, 160);
+            border-radius: 5%; 
+            text-align: center;
+            color: blue;
+            background: #f1f1f1;
+           
+        }
+        article1 div figure:hover {
+            box-shadow: 0px 0px 4px violet, 0px 0px 8px violet, 0px 0px 12px violet;
+            width: 370px;
+            height: 340px; 
+            transition: all 300ms ease-in-out;
+        }
+
+
+        article1 div {
+            display: flex;
+            flex-flow: row wrap;
+            padding: 2%;
+        }
+        
+        article1 div figure {
+            flex: 1 0 200px;
+            width: 400px;
+            height: 350px;
+            margin: 12px ; 
+            box-shadow: 0px 3px 3px #000, 0px 3px 6px #000, 0px 3px 12px #000;
+            border-radius: 5%; 
+            text-align: left;
+            color: rgb(255, 60, 0);
+            background: #f1f1f1;
+            line-height: normal;
+            padding: 5%;
+        }
+        article1 div figure p {
+          margin-top: 5px;
+        }
+        article1 div figure:hover {
+            box-shadow: 0px 0px 4px violet, 0px 0px 8px violet, 0px 0px 12px violet;
+            width: 370px;
+            height: 340px; 
+            transition: all 300ms ease-in-out;
+        }
+.highlighter {
+  background: rgb(105, 4, 4);
+  padding: 1%;
+  color: whitesmoke;
+  text-align: center;
+  border-radius: 2%;
+  
+ 
+}
+.holdingcontainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.internalcontainerL {
+  flex: 1;
+  background: burlywood;
+  padding: 30px;
+  font-family: 'Lucida Sans';
+  margin: 8px;
+  box-shadow: 0px 0px 4px violet, 0px 0px 8px violet, 0px 0px 12px violet; 
+  border: 1px solid rgba(228, 90, 221, 0.3);
+  width: 220px;
+  height: 600px;
+
+}
+.internalcontainerL img {
+  width: 100%;
+  height: 40%;
+}
+.internalcontainerM {
+  flex: 1;
+  background: burlywood; 
+  padding: 30px;
+  font-family: 'Lucida Sans';
+  margin: 8px;
+  box-shadow: 0px 0px 4px violet, 0px 0px 8px violet, 0px 0px 12px violet;
+  border: 1px solid rgba(228, 90, 221, 0.3);
+  width: 220px;
+  height: 600px;
+}
+.internalcontainerM img {
+  width: 100%;
+  height: 40%;
+}
+.internalcontainerR {
+  flex: 1;
+  background: burlywood; 
+  padding: 30px;
+  font-family: 'Lucida Sans';
+  margin: 8px;
+  box-shadow: 0px 0px 4px violet, 0px 0px 8px violet, 0px 0px 12px violet; 
+  border: 1px solid rgba(228, 90, 221, 0.3);
+  width: 220px;
+  height: 600px;
+}
+.internalcontainerR img {
+  width: 100%;
+  height: 40%;
+} 
+.internalcontainerR:hover {
+
+  color: green;
+  background-color: rgb(211, 209, 199);
+  transition: all 300ms ease-in-out;
+}
+.internalcontainerL:hover {
+
+color: green;
+background-color: rgb(211, 209, 199);
+transition: all 300ms ease-in-out;
+}
+.internalcontainerM:hover {
+
+color: green;
+background-color: rgb(211, 209, 199);
+transition: all 300ms ease-in-out;
+}
+@media screen and ( max-width: 768px){
+  .holdingcontainer {
+    flex-direction: column;
+  }
+}
+  
+
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>WELCOME TO</h1>
+  <p> <h2>OJAPH AGRO DEVELOPMENT LIMITED PAGE</h2></p>
+  
+</div>
+
+<div class="topnav">
+  <a href="#">Home</a>
+  <a href="#">About</a>
+  <a href="ourservices.html">Services</a>
+  <a href="contacts.html" style="float:right">Contacts</a>
+</div> 
+<br> <br>
+
+<div id="slider">
+
+  <ul id="slideWrap">
+    <li><img src="images/CABBAGES.jpg" alt="" width="400px" height="320px"> </li>
+    <li><img src="images/ONION BED.jpg" alt="" width="400px" height="320px"> </li>
+    <li><img src="images/ONION.jpg" alt="" width="400px" height="320px"> </li>
+    <li><img src="images/POTS.jpg" alt="" width="400px" height="320px"> </li>
+    <li><img src="images/ARRANGING BED.jpg" alt="" width="400px" height="320px"> </li>
+    <li><img src="images/ONI.jpg" alt="ONION" width="400px" height="320px"></li>
+    <li><img src="images/TOMATOES.jpg" alt="TOMATOES" width="400px" height="320px"></li>
+    <li><img src="images/beds.jpg" alt="beds" width="400px" height="320px"></li>
+  </ul>
+   <a id="prev" href="#">&#8810;</a>
+   <a id="next" href="#">&#8811;</a>
+</div> <br>
+
+
+<script>
+  var responsiveSlider = function() {
+
+var slider = document.getElementById("slider");
+var sliderWidth = slider.offsetWidth;
+var slideList = document.getElementById("slideWrap");
+var count = 1;
+var items = slideList.querySelectorAll("li").length;
+var prev = document.getElementById("prev");
+var next = document.getElementById("next");
+
+window.addEventListener('resize', function() {
+sliderWidth = slider.offsetWidth;
+});
+
+var prevSlide = function() {
+if(count > 1) {
+  count = count - 2;
+  slideList.style.left = "-" + count * sliderWidth + "px";
+  count++;
+}
+else if(count = 1) {
+  count = items - 1;
+  slideList.style.left = "-" + count * sliderWidth + "px";
+  count++;
+}
+};
+
+var nextSlide = function() {
+if(count < items) {
+  slideList.style.left = "-" + count * sliderWidth + "px";
+  count++;
+}
+else if(count = items) {
+  slideList.style.left = "0px";
+  count = 1;
+}
+};
+
+next.addEventListener("click", function() {
+nextSlide();
+});
+
+prev.addEventListener("click", function() {
+prevSlide();
+});
+
+setInterval(function() {
+nextSlide()
+}, 5000);
+
+};
+
+window.onload = function() {
+responsiveSlider();  
+}
+
+</script> 
+
+
+<div class="container">
+      <article>
+          <div >
+              <figure data-tilt> 
+                  <h1 style="text-shadow: 2px 2px 5px rgb(255, 0, 179);">OUR MISSION</h1> 
+               <div style="text-align: justify; padding: 5%; font-size: large;"><p>To offer quality, affordable and readily accessible agricultural services to our clients to ensure a sustainale livelihood for the communities we serve</p></div>
+              </figure>
+              <figure data-tilt>
+                <h1 style="text-shadow: 2px 2px 5px rgb(255, 0, 221);">OUR VISION</h1> 
+                <p style="text-align: justify; padding: 5%;  ">We are dedicated to an integrated socially responsible business model that delivers
+                   holistic and demand-driven agricultural products and services in a way that can sustain the income needs of our 
+                   farmer clients, meets the demand of our buyers, and generates a multiplier effect toward the sustainable growth and improvement 
+                   of rural community livelihoods. This includes commercial seed production, distribution of agro-inputs, 
+                   and marketing of farm produce.</p>
+                </figure>
+              <figure data-tilt> 
+                <h1 style="text-shadow: 2px 2px 5px rgb(172, 42, 144);"> CORE VALUES </h1>
+                <div style="text-align: justify; font-size: large;"><ol>
+                  <li>Farmer centered. </li>
+                  <li>Creativity/Innovativeness. </li>
+                  <li>Sustainability. </li>
+                  <li>Transparency. </li>
+                  <li>Integrity and Accountability. </li>
+              </ol></div>
+              </figure>
+
+          </div>
+
+        </article> <br>
+     </div> <br>
+    <div class="row">
+     <div class="leftcolumn">
+      <div class="card">
+        <div class="fakeimg">
+        <h2 style="color: blue; text-align: center; ">SLOGAN: FARMING FOR DEVELOPMENT</h2>
+        <p style="text-align: justify; color: rgb(177, 13, 13); font-size: large;">OJAPH AGRO DEVELOPMENT LIMITED (OADL) is an Agricultural Development firm started in March 2021 and got incorporated in Uganda on the 10th of November, 2022 providing farmers with access to quality, genuine and affordable Agricultural Inputs, Agricultural Extension Services and Market Linkages to profitable and reliable output.
+          We operate in the West Nile region of Uganda and our office is at Kubala, Terego, Arua city, Uganda</p>
+        </div>
+      
+      <div class="card">
+        <div class="fakeimg"><p > <h1 style="color: rgb(12, 16, 243); text-align: center;"> Our Products & Services</h1> </p>
+            <div style="color: rgb(66, 36, 10);">
+            <ol>
+              
+            <li> Agricultural Inputs    </li>
+            <li> Agribusiness and Agriculture Consultancy Services    </li>
+            <li> Commodity Trading    </li>
+            <li> Trainings on General Agronomy.    </li>
+            </ol>
+            </div>
+          </div>
+        </div>
+        <article1>
+          <div>
+              <figure>
+                <div class="highlighter"><h4> Agricultural Inputs </h4></div>
+                <p>To farmers and groups that support, Our Farm House provides real and high-quality agricultural inputs. Specifically, in;</p>
+      
+                <ul>
+                  
+                <li> Inorganic and Organic Fertilizers    </li>
+                <li> Crop Protection Chemicals    </li>
+                <li> Improved Crop Seeds (Vegetables and Field Crops)    </li>
+                <li> Farm tools, Equipment and implements.    </li>
+                </ul>
+              </figure>
+              <figure>
+                <div class="highlighter"><h4> Commodity Trading </h4> </div>
+                <p> We connect farmers to the agricultural market. We work together with large-scale produce millers, produce exporters, wholesale merchants, and retailers to do this; we directly purchase from the farmers, add value, and then sustainably sell to various markets. </p> 
+              </figure>
+          </div>
+      </article1>
+            <article1>
+                <div>
+                    <figure>
+                        <div class="highlighter"> Professional Agribusiness Consultancy Services </div>
+                          <p> We provide technical Assistance to Agricultural Value Chain Actors in the areas of; </p>
+                              <ul>
+                                    <li>	Soil and Optimal Water Utilization </li>
+                                    <li> Farm planning and design </li>
+                                    <li> Crop production and Improvement including climate smart Agriculture and agro ecological practices </li>
+                                    <li>	Rural Farmer Groups Formation, Management and Capacity Development </li>
+                                    <li> 	Farming as a Business. </li>
+                                    <li> 	Financial Inclusion Including Small-holder farmers financial access through village-based savings and loan associations and other linkages to financial institutions to have easy access. </li>
+                                    <li> 	Environment and environmental protection activities.. </li>
+                                    <li> 	Community nutrition and sensitization. </li>
+                                </ul>
+        
+                        </div>
+                      </figure>
+                  </div>
+                </div>
+            </article1>
+           
+    <div class="rightcolumn">
+      <div class="card1" data-tilt>
+        <img src="images/Ph.jpg">
+        <h2>Ojandu Philliam</h2>
+        <h3>Director</h3>
+       <p> He is a qualified and professional in the field of agriculture and other related areas of livelihood and Environment......</p> 
+       <div>
+        <a href="Profile.html" class="btn"> Read More </a>
+       </div>
+      </div>
+      <div class="card1" data-tilt>
+        <img src="images/Oceni.jpg">
+         <h2>Oceni Kennedy</h2>
+         <h3>Secretary</h3>
+         <p>He is a qualified and professional in the field of agriculture and other related areas of livelihood and Environment.......</p>
+            <div>
+              <a href="Profile.html" class="btn"> Read More </a>
+            </div>
+        </div>
+        <div class="follow">
+          <h1> Follow us on </h1>
+          <p>Facebook</p>
+          <p>Twitter</p>
+          <p>Instagram</p>
+        </div>
+    </div> 
+    <script src="vanilla-tilt.js"></script>
+  </div> 	<br>
+
+  <p style="color: blue; font-size: 50px; text-align: center; background: #f4ddf5; padding: 2%; font-style: italic; border-radius: 5%;"> You might be Interested </p>
+
+    
+ 
+ <div class="holdingcontainer">
+    <div class="internalcontainerL"> 
+      <img src="images/CABBAGES.jpg">
+      <h2>CABBAGES</h2>
+       <p>This was one of the success stories of our cabbages projects. We highly encourage to visit Ojaph Agro Development Limited for advices and share of ideass </p>
+       <div>
+        <a href="#" class="btn"> Read More </a>
+       </div>
+    </div>
+    <div class="internalcontainerM"> 
+      <img src="images/ONION BED.jpg">
+      <h2>Onion Field</h2>
+       <p>Planting design<br>
+        This is the most common method practiced for irrigated crop as it results in high yield and large size bulbs
+         Bulbs or seedlings are planted in rows of 20 cm spacing and 12 cm between plants...... </p>
+         <a href="#" class="btn"> Read More </a>
+         </div>
+         <div>
+          
+    </div>
+    <div class="internalcontainerR"> 
+      <img src="images/ONION.jpg">
+      <h2>Onion Cultivation </h2>
+       <p> (1) It is necessary for the farmers to predict the rain before spraying. If it rains after spraying, then both the 
+        time and money of the farmers will be wasted..........</p>
+        <div>
+          <a href="#" class="btn"> Read More </a>
+         </div>
+        
+       </p>
+    </div>
+    <div class="internalcontainerR"> 
+      <img src="images/POTS.jpg">
+      <h2> Cultivation in Small Pots</h2>
+       <p> The improvised pots are environment friendly and can decompose and produce manure for the growning plants. This method has many advantages. Click to continue reading </p>
+       <div>
+        <a href="#" class="btn"> Read More </a>
+       </div>
+    </div>
+    
+ </div> <br>
+
+ <div class="holdingcontainer">
+  <div class="internalcontainerL"> 
+    <img src="images/ARRANGING BED.jpg">
+    <h2>Plantation of Tomatoes</h2>
+     <p> The above is a robust line of bed prep tools that boost efficiency for smaller-scale growers and home gardeners.</p>
+           
+          <div>
+            <a href="#" class="btn"> Read More </a>
+           </div>
+  </div>
+  <div class="internalcontainerM"> 
+    <img src="images/ONI.jpg">
+    <h2>Scretes of Planting Tomatoes in a Terrace</h2>
+     <p> We have Organises an attractive articile about it   </p>
+     <div>
+      <a href="#" class="btn"> Read More </a>
+     </div>
+  </div>
+  <div class="internalcontainerR"> 
+    <img src="images/TOMATOES.jpg">
+    <h2> Planting Tomates during Dry Season .</h2>
+     <p> If you still want to make money or feed your family during dry season, Contact Ojaph Agro Development Limited or read the article for more </p>
+     <div>
+      <a href="#" class="btn"> Read More </a>
+     </div>
+  </div>
+  <div class="internalcontainerR"> 
+    <img src="images/beds.jpg">
+    <h2> Seedling Bed</h2>
+     <p> We got interesting method for preparing seedlings bed and can give you maximum results. Read the prepared articel or contact Ojaph Agro Development Limited </p>
+     <div>
+      <a href="#" class="btn"> Read More </a>
+     </div>
+  </div>
+ </div> <br>
+ <div class="footer"> Copyright @2023 OJAPH AGRO DEVELOPMENT LIMITED-Designed By Nelly (nkobeson@gmail, +256-702344837)</div> 
+</body>
+</html>
+
+
